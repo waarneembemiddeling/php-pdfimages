@@ -6,10 +6,13 @@
 * file that was distributed with this source code.
 */ 
 
-namespace Waarneembemiddeling\PdfImages;
+namespace Wb\PdfImages;
 
 class PdfImagesTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var PdfImages
+     */
     private $pdfImages;
 
     public function setUp()

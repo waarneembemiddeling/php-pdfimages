@@ -6,14 +6,14 @@
 * file that was distributed with this source code.
 */ 
 
-namespace Waarneembemiddeling\PdfImages;
+namespace Wb\PdfImages;
 
 use Alchemy\BinaryDriver\AbstractBinary;
 use Alchemy\BinaryDriver\Configuration;
 use Alchemy\BinaryDriver\ConfigurationInterface;
 use Alchemy\BinaryDriver\Exception\ExecutionFailureException;
 use Psr\Log\LoggerInterface;
-use Waarneembemiddeling\PdfImages\Exception\RuntimeException;
+use Wb\PdfImages\Exception\RuntimeException;
 
 class PdfImages extends AbstractBinary
 {

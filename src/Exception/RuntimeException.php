@@ -6,7 +6,7 @@
 * file that was distributed with this source code.
 */ 
 
-namespace Waarneembemiddeling\PdfImages\Exception;
+namespace Wb\PdfImages\Exception;
 
 class RuntimeException extends \RuntimeException
 {}
