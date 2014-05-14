@@ -1,8 +1,36 @@
-PHP wrapper for the (pdfimages command)[http://en.wikipedia.org/wiki/Pdfimages] available on most linux distro's.
+php-pdfimages
+=============
 
-usage
-png output
+PHP wrapper for the [pdfimages command](http://en.wikipedia.org/wiki/Pdfimages) available on most linux distro's.
 
+Usage
+-------------
+```
+use Waarneembemiddeling\PdfImages\PdfImages;
+$pdfImages = PdfImages::create();
+// $result is an instance of \FilesystemIterator
+$result = $pdfImages->extractImages('path/to/pdf');
+$result2 = $pdfImages->extractImages('path/to/pdf', 'path/to/other/destination/dir/then/tmp');
+
+```
+
+PNG output
+-------------
+PNG images will not be converted to jpeg but will be extracted as one or more ppm files.
 
 Testing
-set binary in binary config in phpunit.xml.dist
+-------------
+
+```
+cp phpunit.xml.dist phpunit.xml
+```
+
+Change the phpunit.xml ```env``` ```binary``` directive if necessary.
+
+```
+composer install
+```
+
+```
+php vendor/bin/phpunit
+```
