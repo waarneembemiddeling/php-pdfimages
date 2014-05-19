@@ -9,7 +9,7 @@ PHP wrapper for the [pdfimages command](http://en.wikipedia.org/wiki/Pdfimages) 
 Usage
 -------------
 ```
-use Waarneembemiddeling\PdfImages\PdfImages;
+use Wb\PdfImages\PdfImages;
 $pdfImages = PdfImages::create();
 // $result is an instance of \FilesystemIterator
 $result = $pdfImages->extractImages('path/to/pdf');
