@@ -57,6 +57,24 @@ class PdfImages extends AbstractBinary
 
         mkdir($destinationFolder);
 
+        $options = $this->buildOptions($saveAsJpeg, $inputPdf, $destinationFolder);
+
+        try {
+            $this->command($options);
+        } catch (ExecutionFailureException $e) {
+            throw new RuntimeException('PdfImages was unable to extract images', $e->getCode(), $e);
+        }
+
+        return new \FilesystemIterator($destinationFolder, \FilesystemIterator::SKIP_DOTS);
+    }
+
+    /**
+     * @param bool $saveAsJpeg
+     * @param $inputPdf
+     * @param null $destinationRootFolder
+     */
+    private function buildOptions($saveAsJpeg, $inputPdf, $destinationFolder)
+    {
         $options = array();
 
         if ($saveAsJpeg) {
@@ -66,13 +84,7 @@ class PdfImages extends AbstractBinary
         $options[] = $inputPdf;
         $options[] = $destinationFolder;
 
-        try {
-            $this->command($options);
-        } catch (ExecutionFailureException $e) {
-            throw new RuntimeException('PdfImages was unable to extract images', $e->getCode(), $e);
-        }
-
-        return new \FilesystemIterator($destinationFolder, \FilesystemIterator::SKIP_DOTS);
+        return $options;
     }
 
 
